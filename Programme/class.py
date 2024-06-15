@@ -35,3 +35,16 @@ Destination1.afficher_destination()
 
 
 
+class Voyage:
+    def __init__(self, budget):
+        self.destination = []
+        self.budget = budget
+
+    def ajout_destination(self, destination):
+        self.destination.append(destination)
+
+    def afficher_itinéraire(self):
+        print()
+
+    def gestion_budget(self, budget):
+        print()
