@@ -7,8 +7,6 @@ class Voyageur: #nom de la classe
     def afficher_info(self):
         print(f"Le nom du voyageur est {self.nom} et il a {self.age} ans.")
 
-Voyageur1 = Voyageur("Conrad", 24)
-
 class Destination:
 
     def __init__(self, ville):
@@ -20,12 +18,7 @@ class Destination:
 
     def afficher_destination(self):
         activite_str = ", ".join(self.activite)            
-        print(f"{self.ville} est la ville de destination ou vous pourrez {activite_str} ")
-
-Destination1 = Destination("Paris")
-Destination1.ajout_activite("Visiter la Tour-Eiffel")
-Destination1.ajout_activite("Prendre un verre dans une terrasse")
-Destination1.afficher_destination()
+        print(f"{self.ville} est la ville de destination ou vous pourrez {activite_str}.")
 
 class Voyage:
     
@@ -34,11 +27,17 @@ class Voyage:
         self.budget = budget
 
     def ajouter_destination(self, destination):
-        self.destinations.append(destination)
+        if isinstance(destination, Destination):
+            self.destinations.append(destination)
+        else:
+            print("Erreur : La destination doit être une instance de la classe Destination")
 
     def afficher_itineraire(self):
         for destination in self.destinations:
-            destination.afficher_destination()
+            if isinstance(destination, Destination):
+                destination.afficher_destination()
+            else:
+                print("Erreur : Un objet dans la liste des destinations n'est pas une instance de la classe Destination")
 
     def afficher_budget(self):
         print(f"Le budget Voyage est de {self.budget} €")
@@ -52,10 +51,16 @@ class Voyage:
         else:
             print(f"Le solde budget est de : {self.budget} et ne peux donc pas être négatif")
 
+# Créer une instance de Voyage avec un budget initial
+voyage1 = Voyage(1000)
 
-#Voyage1 = Voyage(900)
-#Voyage1.afficher_budget()
-#Voyage1.retirer_fonds(100)
-#Voyage1.afficher_budget()
-#Voyage1.ajouter_destination("Paris")
-#Voyage1.afficher_itineraire()
+# Ajouter des destinations au voyage
+destination1 = Destination("Paris")
+destination1.ajout_activite("Visiter la Tour-Eiffel")
+destination1.ajout_activite("Prendre un verre dans une terrasse")
+
+destination2 = Destination("Londres")
+destination2.ajout_activite("Visiter le British Museum")
+destination2.ajout_activite("Faire un tour sur le London Eye")
+
+voyage1.afficher_itineraire()
