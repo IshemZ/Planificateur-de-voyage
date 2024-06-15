@@ -18,7 +18,7 @@ class Destination:
 
     def afficher_destination(self):
         activite_str = ", ".join(self.activite)            
-        print(f"{self.ville} est la ville de destination ou vous pourrez {activite_str}.")
+        print(f"{self.ville} est la ville de destination où vous pourrez {activite_str}.")
 
 class Voyage:
     
