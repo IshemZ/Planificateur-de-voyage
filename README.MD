@@ -38,7 +38,6 @@ Indice : Une classe en Python se définit avec le mot-clé class. Un Voyageur po
 
 Définir une classe Voyageur.
 Ajouter un constructeur (__init__) qui initialise les attributs nom et age.
-Essaie de le faire et montre-moi ce que tu as fait !
 
 1.2. Définir la classe Destination
 
@@ -51,7 +50,6 @@ Indice : Pense aux informations et actions nécessaires pour une destination de 
 Définir une classe Destination.
 Ajouter un constructeur qui initialise le nom et une liste vide pour les activités.
 Ajouter une méthode pour ajouter une activité.
-Essaie de le faire et montre-moi ce que tu as fait !
 
 1.3. Définir la classe Voyage
 
@@ -64,6 +62,42 @@ Indice : Pense aux fonctionnalités que nous avons décrites. La classe pourrait
 Définir une classe Voyage.
 Ajouter un constructeur qui initialise une liste de destinations et un budget.
 Ajouter une méthode pour ajouter une destination.
-Essaie de le faire et montre-moi ce que tu as fait !
 
 Une fois que tu as terminé ces trois classes, nous passerons à la prochaine étape qui consiste à ajouter des fonctionnalités à ces classes. N'hésite pas à poser des questions si tu es bloqué ou si tu veux des indices supplémentaires !
+
+---------------------------------------------------------------
+
+Concepts Utilisés
+Classes et Objets :
+
+Création de classes (Voyageur, Destination, Voyage).
+Initialisation des objets avec des attributs.
+Méthodes :
+
+Définition et utilisation de méthodes pour manipuler les attributs des objets (ajout_activite, afficher_destination, etc.).
+
+Listes :
+Utilisation des listes pour stocker plusieurs objets (activite dans Destination, destinations dans Voyage).
+
+Conditions :
+Vérification des types d'objets avec isinstance pour s'assurer que seules les bonnes instances sont ajoutées.
+
+Gestion du Budget :
+Ajout et retrait de fonds avec vérification des conditions pour éviter les soldes négatifs.
+Suggestions pour Aller Plus Loin
+
+Ajouter des Voyageurs :
+Étendre la classe Voyage pour inclure une liste de voyageurs et gérer leurs informations.
+
+Enrichir les Détails des Activités :
+Permettre à chaque activité d'avoir un coût associé et de calculer le coût total des activités pour une destination.
+
+Interactivité :
+Créer une interface utilisateur simple pour ajouter des destinations, des activités et des voyageurs via des entrées utilisateur.
+
+
+Sauvegarde et Chargement :
+Implémenter des fonctionnalités pour sauvegarder l'état du voyage dans un fichier et le charger plus tard.
+
+Tests Unitaires :   
+Écrire des tests unitaires pour vérifier le bon fonctionnement de chaque méthode de manière isolée.
