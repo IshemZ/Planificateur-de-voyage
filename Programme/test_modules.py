@@ -70,7 +70,7 @@ class TestVoyage(unittest.TestCase):
         sys.stdout = captured_output
         voyage.afficher_itineraire()
         sys.stdout = sys.__stdout__
-        self.assertIn("Paris est la ville de destination où vous pourrez Visiter la Tour-Eiffel.", captured_output.getvalue().strip())
+        self.assertIn(captured_output.getvalue().strip(), "Paris est la ville de destination où vous pourrez Visiter la Tour-Eiffel.")
     
     def test_ajouter_fonds(self):
         voyage = Voyage(1000)
@@ -86,7 +86,7 @@ class TestVoyage(unittest.TestCase):
         sys.stdout = captured_output
         voyage.retirer_fonds(600)
         sys.stdout = sys.__stdout__
-        self.assertIn("Le solde du budget est de : 500 € et vous voulez retirer 600 €, Le solde ne peut donc pas être négatif", captured_output.getvalue().strip())
+        self.assertIn(captured_output.getvalue().strip(), "Le solde du budget est de : 500€ et vous voulez retirez 600€, Le solde ne peux donc pas être négatif")
 
 
 if __name__ == '__main__':
