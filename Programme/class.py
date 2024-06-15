@@ -49,10 +49,11 @@ class Voyage:
         if montant <= self.budget:
             self.budget -= montant
         else:
-            print(f"Le solde budget est de : {self.budget} et ne peux donc pas être négatif")
+            print(f"Le solde du budget est de : {self.budget} et vous voulez retirez {montant}€, Le solde ne peux donc pas être négatif")
+#Créer des instance de Voyageurs avec le nom et l'âge
+voyageur1 = Voyageur("Luc", 43)
 
-# Créer une instance de Voyage avec un budget initial
-voyage1 = Voyage(1000)
+
 
 # Ajouter des destinations au voyage
 destination1 = Destination("Paris")
@@ -63,4 +64,17 @@ destination2 = Destination("Londres")
 destination2.ajout_activite("Visiter le British Museum")
 destination2.ajout_activite("Faire un tour sur le London Eye")
 
+
+# Créer une instance de Voyage avec un budget initial
+voyage1 = Voyage(1000)
+voyage1.afficher_budget()
+voyage1.ajouter_fonds(200)
+voyage1.afficher_budget()
+voyage1.retirer_fonds(1000)
+voyage1.afficher_budget()
+voyage1.retirer_fonds(300)
+voyage1.afficher_budget()
+
+voyage1.ajouter_destination(destination1)
+voyage1.ajouter_destination(destination2)
 voyage1.afficher_itineraire()
