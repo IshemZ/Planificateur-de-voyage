@@ -30,13 +30,64 @@ class TestVoyageur(unittest.TestCase):
         self.assertEqual(captured_output.getvalue().strip(), "Le nom du voyageur est Bob et il a 29 ans.")
 
 class TestDestination(unittest.TestCase):
+    def test_initialisation(self):
+        destination = Destination("Paris")
+        self.assertEqual(destination.ville, "Paris")
+        self.assertEqual(destination.activite, [])
     
-    pass
-
+    def test_ajout_activite(self):
+        destination = Destination("Paris")
+        destination.ajout_activite("Visiter la Tour-Eiffel")
+        self.assertIn("Visiter la Tour-Eiffel", destination.activite)
+    
+    def test_afficher_destination(self):
+        destination = Destination("Paris")
+        destination.ajout_activite("Visiter la Tour-Eiffel")
+        captured_output = io.StringIO()
+        sys.stdout = captured_output
+        destination.afficher_destination()
+        sys.stdout = sys.__stdout__
+        self.assertEqual(captured_output.getvalue().strip(), "Paris est la ville de destination où vous pourrez Visiter la Tour-Eiffel.")
 
 class TestVoyage(unittest.TestCase):
+    def test_initialisation(self):
+        voyage = Voyage(1000)
+        self.assertEqual(voyage.budget, 1000)
+        self.assertEqual(voyage.destinations, [])
     
-    pass
+    def test_ajouter_destination(self):
+        voyage = Voyage(1000)
+        destination = Destination("Paris")
+        voyage.ajouter_destination(destination)
+        self.assertIn(destination, voyage.destinations)
+    
+    def test_afficher_itineraire(self):
+        voyage = Voyage(1000)
+        destination = Destination("Paris")
+        destination.ajout_activite("Visiter la Tour-Eiffel")
+        voyage.ajouter_destination(destination)
+        captured_output = io.StringIO()
+        sys.stdout = captured_output
+        voyage.afficher_itineraire()
+        sys.stdout = sys.__stdout__
+        self.assertIn("Paris est la ville de destination où vous pourrez Visiter la Tour-Eiffel.", captured_output.getvalue().strip())
+    
+    def test_ajouter_fonds(self):
+        voyage = Voyage(1000)
+        voyage.ajouter_fonds(200)
+        self.assertEqual(voyage.budget, 1200)
+    
+    def test_retirer_fonds(self):
+        voyage = Voyage(1000)
+        voyage.retirer_fonds(500)
+        self.assertEqual(voyage.budget, 500)
+        voyage.retirer_fonds(600)
+        captured_output = io.StringIO()
+        sys.stdout = captured_output
+        voyage.retirer_fonds(600)
+        sys.stdout = sys.__stdout__
+        self.assertIn("Le solde du budget est de : 500 € et vous voulez retirer 600 €, Le solde ne peut donc pas être négatif", captured_output.getvalue().strip())
+
 
 if __name__ == '__main__':
     unittest.main()
