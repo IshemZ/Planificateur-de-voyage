@@ -47,9 +47,12 @@ class Voyage:
 
     def retirer_fonds(self, montant):
         if montant <= self.budget:
-            self.budget -= montant
+            self.budget = self.budget - montant
         else:
-            print(f"Le solde du budget est de : {self.budget} et vous voulez retirez {montant}€, Le solde ne peux donc pas être négatif")
+            print(f"Le solde du budget est de : {self.budget}€ et vous voulez retirez {montant}€, Le solde ne peux donc pas être négatif")
+
+
+
 #Créer des instance de Voyageurs avec le nom et l'âge
 voyageur1 = Voyageur("Luc", 43)
 
