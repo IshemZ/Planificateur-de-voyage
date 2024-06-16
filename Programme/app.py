@@ -2,7 +2,25 @@ import tkinter as Tk
 from tkinter import ttk
 import folium
 from tkhtmlview import HTMLLabel
+import os 
+import openpyxl
+import pandas as pd
 
+#Ajout des path des différents fichier pour ajout des données
+# Vérifier et créer les fichiers CSV avec en-têtes
+
+path_voyageur = "../Desktop/My Program Files/Planificateur-de-voyage/Data/Data_Destination.csv"
+path_destination = "../Desktop/My Program Files/Planificateur-de-voyage/Data/Data_Destination.csv"
+path_voyage = "../Desktop/My Program Files/Planificateur-de-voyage/Data/Data_Voyages.csv"
+
+def creer_fichier_csv(path, en_tetes):
+    if not os.path.exists(path):
+        df = pd.DataFrame(columns=en_tetes)
+        df.to_csv(path, index=False)
+
+creer_fichier_csv(path_voyageur, ["nom","age"])
+creer_fichier_csv(path_destination, ["ville","activite"])
+creer_fichier_csv(path_voyage, ["budget"])
 
 
 #Création de la fenêtre principale
@@ -34,6 +52,7 @@ def ajouter_voyageurs():
     nom = entry_nom_voyageur.get()
     age = entry_age_voyageur.get()
     if nom and age:
+        creer_fichier_csv(path_voyageur, en_tetes=["nom","age"])
         print(f"Ajout du voyageur : Nom - {nom}, Age - {age}")
     else:
         print("Les deux champs doivent être remplies pour integrer un nouveau voyageur.")
