@@ -1,13 +1,17 @@
 import tkinter as Tk
 from tkinter import ttk
+import folium
+from tkhtmlview import HTMLLabel
+
+
 
 #Création de la fenêtre principale
 root = Tk.Tk()
 root.title("Gestionnaire de voyage")
 
 #créer un widget notebook pour les onglets
-notebook = ttk.Notebook(root)
-notebook.pack(pady=10, expand=True)
+notebook = ttk.Notebook(root, height=500, width=700)
+notebook.pack(pady=5, expand=True, )
 
 # créer les cadres pour les différents onglets
 frame_voyageurs = ttk.Frame(notebook, width=400, height=280)
@@ -88,10 +92,6 @@ entry_budget_voyage.pack(pady=5)
 button_ajouter_voyage = Tk.Button(frame_voyages, text="Ajouter Voyage", command=ajouter_voyage)
 button_ajouter_voyage.pack(pady=20)
 
-
-
-
-
-
 #Lancer la fenêtre
 root.mainloop()
+
