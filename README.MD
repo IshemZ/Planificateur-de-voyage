@@ -84,7 +84,9 @@ Vérification des types d'objets avec isinstance pour s'assurer que seules les b
 
 Gestion du Budget :
 Ajout et retrait de fonds avec vérification des conditions pour éviter les soldes négatifs.
-Suggestions pour Aller Plus Loin
+
+
+# Suggestions pour Aller Plus Loin
 
 Ajouter des Voyageurs :
 Étendre la classe Voyage pour inclure une liste de voyageurs et gérer leurs informations.
