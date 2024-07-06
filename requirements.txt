@@ -1,6 +1,6 @@
 bottle==0.12.25
 branca==0.7.2
-certifi==2024.6.2
+certifi==2024.7.4
 charset-normalizer==3.3.2
 et-xmlfile==1.1.0
 folium==0.16.0
